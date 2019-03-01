@@ -1,0 +1,46 @@
+@model ViewModel
+
+<div class="container mt-5">
+    <a class="float-right" href="/logout">Log Out</a>
+    <h1>Hi @Model.User.FirstName!</h1>
+    <div class="header">
+    </div>
+    <form asp-controller="Home" asp-action="NewIdea" method="post">
+        <label asp-for="Idea.Content"></label>
+        <br>
+        <span asp-validation-for="Idea.Content" class="text-danger"></span>
+        <input asp-for="Idea.Content" class="form-control" placeholder="Minimum 5 letters">
+        <button type="submit" class="btn btn-sm btn-info mt-2">Submit</button>
+    </form>
+
+</div>
+<div class="container mt-5">
+@if(Model.Ideas != null)
+{
+    @foreach (var idea in Model.Ideas)
+    {
+        <div class="row">
+            
+        <p><a href="users/@idea.user.UserId">@idea.user.FirstName</a> says:  @idea.Content &nbsp;</p>
+        
+        @if(idea.UserId==Model.User.UserId)
+        {
+            <p><a href="/delete/@idea.IdeaId"> | Delete Idea&nbsp;</a></p>
+        }
+        <p><a href="/like/@idea.IdeaId"> | Like&nbsp;</a></p>
+        @if(idea.Likes.Count==0)
+        {
+            <a href="/bright_idea/@idea.IdeaId">| Be the first to like this Idea!</a>
+        }
+        else if(idea.Likes.Count==1)
+        {
+            <a href="/bright_idea/@idea.IdeaId">&nbsp;| @idea.Likes.Count person likes this Idea!</a>
+        }
+        else
+        {
+            <a href="/bright_idea/@idea.IdeaId">&nbsp;| @idea.Likes.Count people like this Idea!</a>
+        }
+        </div>
+    }
+} 
+</div>

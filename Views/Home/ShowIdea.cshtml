@@ -1,0 +1,26 @@
+@model ViewModel
+<div class="container mt-5">
+    <p><a href="/users/@Model.User.UserId">@Model.User.FirstName </a>says : @Model.Idea.Content</p>
+    <div class="header">
+    <a class="float-right" href="/ideas">Bright Ideas</a>
+    <a class="float-right" href="/logout">Log Out |&nbsp;</a>
+    </div>
+    <p>People who likes this post:</p>
+    <table class="table">
+  <thead>
+    <tr>
+      <th>Alias</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+      @foreach (var like in @ViewBag.Likes)
+      {
+          <tr>
+              <td><a href="/users/@like.User.UserId">@like.User.alias</a></td>
+              <td>@like.User.FirstName @like.User.LastName</td>
+          </tr>
+      }
+    </tbody>
+    </table>
+</div>

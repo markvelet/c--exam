@@ -1,0 +1,65 @@
+
+@model ViewModel
+<h1 class="text-center mt-3">Welcome to Bright Ideas!</h1>
+<div class="row mt-4">
+        <div class="container col-md-4">
+            <h2 class="text-center">Login:</h2>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <label asp-for="LoginUser.Email"></label>
+                    <br>
+                    <span asp-validation-for="LoginUser.Email" class="text-danger"></span>
+                    <input asp-for="LoginUser.Email" class="form-control" placeholder="Ex: paulball@email.com" >
+                </div>
+                <div class="form-group">
+                    <label asp-for="LoginUser.Password"></label>
+                    <br>
+                    <span asp-validation-for="LoginUser.Password" class="text-danger"></span>
+                    <input asp-for="LoginUser.Password" class="form-control" value="12345678">
+                </div>
+                <button type="submit" class="btn btn-info float-right">Login</button>
+            </form>
+        </div>
+        <div class="container col-md-4">
+            <h2 class="text-center">Register:</h2>
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <label asp-for="User.Email"></label>
+                    <br>
+                    <span asp-validation-for="User.Email" class="text-danger"></span>
+                    <input asp-for="User.Email" class="form-control" placeholder="Ex: paulball@email.com">
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.FirstName"></label>
+                    <br>
+                    <span asp-validation-for="User.FirstName" class="text-danger"></span>
+                    <input asp-for="User.FirstName" class="form-control" placeholder="Ex: Paul">
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.LastName"></label>
+                    <br>
+                    <span asp-validation-for="User.LastName" class="text-danger"></span>
+                    <input asp-for="User.LastName" class="form-control" placeholder="Ex: Ball">
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.alias"></label>
+                    <br>
+                    <span asp-validation-for="User.alias" class="text-danger"></span>
+                    <input asp-for="User.alias" class="form-control" placeholder="Ex: PaulBall">
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.Password"></label>
+                    <br>
+                    <span asp-validation-for="User.Password" class="text-danger"></span>
+                    <input asp-for="User.Password" class="form-control" value="12345678">
+                </div>
+                <div class="form-group">
+                    <label asp-for="User.Confirm">Confirm password:</label>
+                    <br>
+                    <span asp-validation-for="User.Confirm" class="text-danger"></span>
+                    <input asp-for="User.Confirm" class="form-control" value="12345678">
+                </div>
+                <button type="submit" class="btn btn-info float-right">Register</button>
+            </form>
+        </div>
+</div>

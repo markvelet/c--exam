@@ -1,0 +1,13 @@
+@model ViewModel
+<div class="container mt-5">
+    <div class="header">
+    <a class="float-right" href="/ideas">Bright Ideas</a>
+    <a class="float-right" href="/logout">Log Out |&nbsp;</a>
+    </div>
+    <h4>Name: @Model.User.FirstName @Model.User.LastName</h4>
+    <h4>Alias: @Model.User.alias</h4>
+    <h4>Email: @Model.User.Email</h4>
+    <hr>
+    <h5>Total Number of Posts: @ViewBag.Ideas</h5>
+    <h5>Total Number of Likes: @ViewBag.Likes</h5>
+</div>
